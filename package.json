@@ -1,0 +1,25 @@
+{
+  "name": "learn-nodejs",
+  "version": "1.0.0",
+  "description": "Exercises while learning nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/**/*.js",
+    "playground": "node ./src/playground.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcphilip/learn-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcphilip/learn-nodejs/issues"
+  },
+  "homepage": "https://github.com/mcphilip/learn-nodejs#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
