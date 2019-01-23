@@ -78,4 +78,17 @@ describe('LinkedList', function() {
             expect(list.toString()).to.equal('2');
         });
     });
+    describe('length', function() {
+        it('should return 0 for empty list', function() {
+            const list = new LinkedList();
+            expect(list.length()).to.equal(0);
+        });
+        it('should return length of list', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            expect(list.length()).to.equal(3);
+        });
+    });
 });

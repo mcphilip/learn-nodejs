@@ -52,6 +52,15 @@ module.exports = class LinkedList {
             this.head = this.head.next ? this.head.next : null;
         }
     }
+    length() {
+        var i = 0;
+        var node = this.head;
+        while(node) {
+            i += 1;
+            node = node.next;
+        }
+        return i;
+    }
     toString() {
         let current = this.head;
         let display = '';
