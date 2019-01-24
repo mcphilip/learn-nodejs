@@ -91,4 +91,26 @@ describe('LinkedList', function() {
             expect(list.length()).to.equal(3);
         });
     });
+    describe('remove', function() {
+        it('should do nothing to empty list', function() {
+            const list = new LinkedList();
+            list.remove(1);
+            expect(list.toString()).to.equal('');
+        });
+        it('should remove first instance of data', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(1);
+            list.remove(1);
+            expect(list.toString()).to.equal('2 -> 1');
+        });
+        it('should not remove any node when data not found', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.remove(3);
+            expect(list.toString()).to.equal('1 -> 2');
+        });
+    });
 });
