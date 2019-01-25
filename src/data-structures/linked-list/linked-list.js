@@ -79,6 +79,15 @@ module.exports = class LinkedList {
         }
         return i;
     }
+    reverse() {
+        const newList = new LinkedList();
+        let current = this.head;
+        while(current) {
+            newList.prepend(current.data);
+            current = current.next;
+        }
+        return newList;
+    }
     toString() {
         let current = this.head;
         let display = '';

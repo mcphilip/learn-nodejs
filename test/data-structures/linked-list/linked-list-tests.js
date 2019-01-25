@@ -113,4 +113,19 @@ describe('LinkedList', function() {
             expect(list.toString()).to.equal('1 -> 2');
         });
     });
+    describe('reverse', function() {
+        it('should do nothing to empty list', function() {
+            let list = new LinkedList();
+            list = list.reverse();
+            expect(list.toString()).to.equal('');
+        });
+        it('should reverse all values in the list', function() {
+            let list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            list = list.reverse();
+            expect(list.toString()).to.equal('3 -> 2 -> 1');
+        });
+    });
 });
