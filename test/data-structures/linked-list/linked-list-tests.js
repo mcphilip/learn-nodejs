@@ -128,4 +128,17 @@ describe('LinkedList', function() {
             expect(list.toString()).to.equal('3 -> 2 -> 1');
         });
     });
+    describe('middleNodeData', function() {
+        it('should return null on empty list', function() {
+            const list = new LinkedList();
+            expect(list.middleNodeData()).to.equal(null);
+        });
+        it('should return middle node data', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            expect(list.middleNodeData()).to.equal(2);
+        });
+    });
 });

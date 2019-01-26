@@ -88,6 +88,19 @@ module.exports = class LinkedList {
         }
         return newList;
     }
+    middleNodeData() {
+        let node1 = this.head;
+        let node2 = this.head;
+        let i = 1;
+        while(node1) {
+            node1 = node1.next;
+            if( i % 2 == 0) {
+                node2 = node2.next;
+            }
+            i++;
+        }
+        return node2 ? node2.data : null;
+    }
     toString() {
         let current = this.head;
         let display = '';
