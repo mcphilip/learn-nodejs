@@ -52,6 +52,9 @@ module.exports = class LinkedList {
             this.head = this.head.next ? this.head.next : null;
         }
     }
+    getFirst() {
+        return this.head;
+    }
     remove(data) {
         if(!this.head) return;
         if(this.head.data === data) {
