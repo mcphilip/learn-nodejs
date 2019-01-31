@@ -1,6 +1,5 @@
 var LinkedList = require('./data-structures/linked-list/linked-list');
 
 const list = new LinkedList();
-list.prepend(5);
-list.prepend(6);
-console.log(list.toString());
+const list2 = new LinkedList();
+console.log(list === list2);

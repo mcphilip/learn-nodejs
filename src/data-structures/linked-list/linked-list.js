@@ -20,10 +20,7 @@ module.exports = class LinkedList {
             this.head = newNode;
         }
         else {
-            let endNode = this.head;
-            while(endNode.next) {
-                endNode = endNode.next;
-            }
+            let endNode = this.getLast();
             endNode.next = newNode;
         }
     }
@@ -54,6 +51,14 @@ module.exports = class LinkedList {
     }
     getFirst() {
         return this.head;
+    }
+    getLast() {
+        if(!this.head) return null;
+        let lastNode = this.head;
+        while(lastNode.next) {
+            lastNode = lastNode.next;
+        }
+        return lastNode;
     }
     remove(data) {
         if(!this.head) return;
@@ -104,7 +109,28 @@ module.exports = class LinkedList {
         }
         return node2 ? node2.data : null;
     }
+    makeLoop() {
+        if(!this.head) return;
+        let lastNode = this.getLast();
+        lastNode.next = this.head;
+    }
+    containsLoop() {
+        let nodeFast = this.head;
+        let nodeSlow = this.head;
+        while(nodeFast) {
+            nodeFast = nodeFast.next ? nodeFast.next.next : null;
+            nodeSlow = nodeSlow.next;
+            if( nodeSlow && nodeFast === nodeSlow ) {
+                return true;
+            }
+        }
+        return false;
+    }
     toString() {
+        if(this.containsLoop()) {
+            throw 'List contains a loop!';
+        }
+
         let current = this.head;
         let display = '';
         while(current) {

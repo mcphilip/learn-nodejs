@@ -141,4 +141,55 @@ describe('LinkedList', function() {
             expect(list.middleNodeData()).to.equal(2);
         });
     });
+    describe('lastNode', function() {
+        it('should return null on empty list', function() {
+            const list = new LinkedList();
+            expect(list.getLast()).to.equal(null);
+        });
+        it('should return last node', function() {
+            const list = new LinkedList();
+            list.prepend(1);
+            list.append(2);
+            expect(list.getLast().data).to.equal(2);
+        })
+    });
+    describe('containsLoop', function() {
+        it('should return false on empty list', function() {
+            const list = new LinkedList();
+            expect(list.containsLoop()).to.equal(false);
+        });
+        it('should return false when no loop exists in single element list', function() {
+            const list = new LinkedList();
+            list.append(1);
+            expect(list.containsLoop()).to.equal(false);
+        });
+        it('should return false when no loop exists in multi element list', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            expect(list.containsLoop()).to.equal(false);
+        });
+        it('should return true when loop exists in single element list', function() {
+            const list = new LinkedList();
+            list.append(1); 
+            list.makeLoop();
+            expect(list.containsLoop()).to.equal(true);
+        });
+        it('should return true when loop exists in multiple element list', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            list.makeLoop();
+            expect(list.containsLoop()).to.equal(true);
+        })
+    });
+    describe('toString', function() {
+        it('should throw error when list contains loop', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.makeLoop();
+            expect(list.toString.bind(list)).to.throw('List contains a loop!');
+        });
+    });
 });
