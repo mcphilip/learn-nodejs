@@ -126,6 +126,17 @@ module.exports = class LinkedList {
         }
         return false;
     }
+    findFirstNodeOfLoop() {
+        let node = this.head;
+        while(node) {
+            if(node.traversed === true) {
+                return node;
+            }
+            node.traversed = true;
+            node = node.next;
+        }
+        return null;
+    }
     toString() {
         if(this.containsLoop()) {
             throw 'List contains a loop!';

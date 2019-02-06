@@ -184,6 +184,22 @@ describe('LinkedList', function() {
             expect(list.containsLoop()).to.equal(true);
         })
     });
+    describe('findFirstNodeOfLoop', function() {
+        it('should return null if no loop', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            expect(list.findFirstNodeOfLoop()).to.equal(null);
+        });
+        it('should return first node of loop', function() {
+            const list = new LinkedList();
+            list.append(1);
+            list.append(2);
+            list.append(3);
+            list.makeLoop();
+            expect(list.findFirstNodeOfLoop().data).to.equal(1);
+        });
+    });
     describe('toString', function() {
         it('should throw error when list contains loop', function() {
             const list = new LinkedList();
